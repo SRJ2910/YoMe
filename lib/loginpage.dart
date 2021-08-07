@@ -12,11 +12,18 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: Padding(
+          padding: const EdgeInsets.all(150.0),
+          child: Text(
+            "Login Page",
+            textScaleFactor: 1.1,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 60.0),
@@ -67,7 +74,6 @@ class _LoginState extends State<Login> {
                 style: TextStyle(color: Colors.blue, fontSize: 15),
               ),
             ),
-            // Divider(),
             SignInButtonBuilder(
               text: 'Sign in with Email',
               icon: Icons.email,
@@ -84,10 +90,6 @@ class _LoginState extends State<Login> {
               // mini: true,
               onPressed: () {},
             ),
-            // SizedBox(
-            //   height: 130,
-            // ),
-            // Text('New User? Create Account')
           ],
         ),
       ),
