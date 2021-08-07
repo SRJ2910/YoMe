@@ -25,10 +25,13 @@ class MyApp extends StatelessWidget {
         ],
         // background: Container(color: Color(0xFFF5F5F5))
       ),
-      initialRoute: "/",
       debugShowCheckedModeBanner: false,
       // home: Login(),
-      home: ProfilePage(),
+      routes: {
+        "/LoginPage": (context) => Login(),
+        "/ProfilePage": (context) => ProfilePage(),
+      },
+      home: Login(),
     );
   }
 }

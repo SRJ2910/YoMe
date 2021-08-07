@@ -67,7 +67,7 @@ class _LoginState extends State<Login> {
             ),
             FlatButton(
               onPressed: () {
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
+                // Navigator.pushNamed(context, '/ProfilePage');
               },
               child: Text(
                 'Forgot Password',
@@ -77,18 +77,24 @@ class _LoginState extends State<Login> {
             SignInButtonBuilder(
               text: 'Sign in with Email',
               icon: Icons.email,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/ProfilePage');
+              },
               backgroundColor: Colors.blueGrey[700]!,
             ),
             SignInButton(
               Buttons.Facebook,
               // mini: true,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/ProfilePage');
+              },
             ),
             SignInButton(
               Buttons.Google,
               // mini: true,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/ProfilePage');
+              },
             ),
           ],
         ),

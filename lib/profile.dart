@@ -8,7 +8,7 @@ class ProfilePage extends StatefulWidget {
 
 class MapScreenState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
-  bool _status = false;
+  bool _status = true;
   final FocusNode myFocusNode = FocusNode();
 
   @override
@@ -32,17 +32,18 @@ class MapScreenState extends State<ProfilePage>
                 child: new Column(
                   children: <Widget>[
                     Padding(
-                        padding: EdgeInsets.only(left: 20.0, top: 20.0),
+                        padding: EdgeInsets.only(left: 20.0, top: 10.0),
                         child: new Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            new Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.black,
-                              size: 22.0,
-                            ),
+                            new IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                iconSize: 23,
+                                icon: Icon(Icons.arrow_back_ios)),
                             Padding(
-                              padding: EdgeInsets.only(left: 25.0),
+                              padding: EdgeInsets.only(left: 0.0, top: 12.0),
                               child: new Text('PROFILE',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -65,8 +66,8 @@ class MapScreenState extends State<ProfilePage>
                                 decoration: new BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: new DecorationImage(
-                                    image: new ExactAssetImage(
-                                        'assets/images/as.png'),
+                                    image: new NetworkImage(
+                                        'https://picsum.photos/id/237/200/300'),
                                     fit: BoxFit.cover,
                                   ),
                                 )),
@@ -139,7 +140,7 @@ class MapScreenState extends State<ProfilePage>
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   new Text(
-                                    'Name',
+                                    'Date-Sate Name',
                                     style: TextStyle(
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.bold),
@@ -157,7 +158,7 @@ class MapScreenState extends State<ProfilePage>
                               new Flexible(
                                 child: new TextField(
                                   decoration: const InputDecoration(
-                                    hintText: "Enter Your Name",
+                                    hintText: "Enter Name",
                                   ),
                                   enabled: !_status,
                                   autofocus: !_status,
@@ -176,7 +177,7 @@ class MapScreenState extends State<ProfilePage>
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   new Text(
-                                    'Email ID',
+                                    'Bio',
                                     style: TextStyle(
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.bold),
@@ -194,7 +195,7 @@ class MapScreenState extends State<ProfilePage>
                               new Flexible(
                                 child: new TextField(
                                   decoration: const InputDecoration(
-                                      hintText: "Enter Email ID"),
+                                      hintText: "Tell us about Yourself"),
                                   enabled: !_status,
                                 ),
                               ),
@@ -211,7 +212,7 @@ class MapScreenState extends State<ProfilePage>
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   new Text(
-                                    'Mobile',
+                                    'Hobby',
                                     style: TextStyle(
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.bold),
@@ -229,7 +230,7 @@ class MapScreenState extends State<ProfilePage>
                               new Flexible(
                                 child: new TextField(
                                   decoration: const InputDecoration(
-                                      hintText: "Enter Mobile Number"),
+                                      hintText: "Tell us about your hobbies"),
                                   enabled: !_status,
                                 ),
                               ),
