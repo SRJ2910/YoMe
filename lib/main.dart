@@ -1,3 +1,4 @@
+import 'package:date_sate_app/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'loginpage.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      // home: Login(),
+      home: ProfilePage(),
     );
   }
 }
