@@ -31,6 +31,7 @@ dependencies:
   responsive_framework: ^0.1.4
   flutter_signin_button: ^2.0.0
   syncfusion_flutter_sliders: ^19.2.51
+  scroll_snap_list: ^0.8.2
   
 
 dev_dependencies:
