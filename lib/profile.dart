@@ -1,3 +1,4 @@
+import 'package:date_sate_app/feed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -363,6 +364,7 @@ class MapScreenState extends State<ProfilePage>
                   setState(() {
                     _status = true;
                     FocusScope.of(context).requestFocus(new FocusNode());
+                    Navigator.pushNamed(context, '/feedPage');
                   });
                 },
                 shape: new RoundedRectangleBorder(

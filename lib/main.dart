@@ -1,3 +1,4 @@
+import 'package:date_sate_app/feed.dart';
 import 'package:date_sate_app/feedfilter.dart';
 import 'package:date_sate_app/profile.dart';
 import 'package:flutter/material.dart';
@@ -32,9 +33,10 @@ class MyApp extends StatelessWidget {
         routes: {
           "/LoginPage": (context) => Login(),
           "/ProfilePage": (context) => ProfilePage(),
+          "/feedPage": (context) => Feedpage(),
         },
-        // home: Login(),
-        home: Filter(),
+        home: Login(),
+        // home: Filter(),
       ),
     );
   }
