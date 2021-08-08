@@ -32,17 +32,17 @@ class _FeedpageState extends State<Feedpage> {
   Widget _buildItemDetail() {
     if (_focusedIndex < 0)
       return Container(
-        height: 50,
-        child: Text("SWIPE-->"),
-      );
+          // height: 50,
+          // child: Text("SWIPE-->"),
+          );
 
     if (data.length > _focusedIndex)
       return Container(
-        height: 50,
-        child: Text(
-          "<--SWIPE-->",
-        ),
-      );
+          // height: 50,
+          // child: Text(
+          //   "<--SWIPE-->",
+          // ),
+          );
 
     return Container(
       height: 250,
@@ -158,8 +158,7 @@ class _FeedpageState extends State<Feedpage> {
               ),
               Divider(),
               ListTile(
-                title: const Text(
-                    "Version : 1.0.1\nContact : surajverma2910@gmail.com"),
+                title: const Text("Version : 1.0.1\nContact : @Suraj || @Dev"),
                 onTap: () {},
               ),
             ],
@@ -180,9 +179,47 @@ class _FeedpageState extends State<Feedpage> {
                 ),
               ),
               _buildItemDetail(),
+              buttonsRow(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buttonsRow() {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 48.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          FloatingActionButton(
+            mini: true,
+            onPressed: () {},
+            backgroundColor: Colors.blue,
+            child: Icon(Icons.loop, color: Colors.black87),
+          ),
+          Padding(padding: EdgeInsets.only(right: 8.0)),
+          FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colors.blue,
+            child: Icon(Icons.close, color: Colors.white),
+          ),
+          Padding(padding: EdgeInsets.only(right: 8.0)),
+          FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colors.blue,
+            child: Icon(Icons.favorite, color: Colors.red),
+          ),
+          Padding(padding: EdgeInsets.only(right: 8.0)),
+          FloatingActionButton(
+            mini: true,
+            onPressed: () {},
+            backgroundColor: Colors.blue,
+            child: Icon(Icons.star, color: Colors.yellow),
+          ),
+        ],
       ),
     );
   }
