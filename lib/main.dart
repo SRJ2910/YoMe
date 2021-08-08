@@ -1,3 +1,4 @@
+import 'package:date_sate_app/feedfilter.dart';
 import 'package:date_sate_app/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
           "/LoginPage": (context) => Login(),
           "/ProfilePage": (context) => ProfilePage(),
         },
-        home: Login(),
+        // home: Login(),
+        home: Filter(),
       ),
     );
   }
