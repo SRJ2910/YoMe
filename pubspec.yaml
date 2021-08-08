@@ -32,7 +32,12 @@ dependencies:
   flutter_signin_button: ^2.0.0
   syncfusion_flutter_sliders: ^19.2.51
   scroll_snap_list: ^0.8.2
+  flutter_launcher_icons: "^0.9.1"
   
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/WhatsApp Image 2021-08-08 at 5.09.42 PM.jpeg"
 
 dev_dependencies:
   flutter_test:

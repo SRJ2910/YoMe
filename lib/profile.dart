@@ -152,7 +152,7 @@ class MapScreenState extends State<ProfilePage>
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     new Text(
-                                      'Date-Sate Name',
+                                      'YoMe Name',
                                       style: TextStyle(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold),
@@ -339,7 +339,7 @@ class MapScreenState extends State<ProfilePage>
                   child: new RaisedButton(
                 child: new Text("View"),
                 textColor: Colors.white,
-                color: Colors.green,
+                color: Colors.red,
                 onPressed: () {
                   setState(() {
                     _status = true;
@@ -359,7 +359,7 @@ class MapScreenState extends State<ProfilePage>
                   child: new RaisedButton(
                 child: new Text("Save & Continue"),
                 textColor: Colors.white,
-                color: Colors.red,
+                color: Colors.green,
                 onPressed: () {
                   setState(() {
                     _status = true;

@@ -189,7 +189,7 @@ class _FeedpageState extends State<Feedpage> {
 
   Widget buttonsRow() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 48.0),
+      margin: EdgeInsets.symmetric(vertical: 40.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -197,27 +197,27 @@ class _FeedpageState extends State<Feedpage> {
           FloatingActionButton(
             mini: true,
             onPressed: () {},
-            backgroundColor: Colors.blue,
-            child: Icon(Icons.loop, color: Colors.black87),
+            backgroundColor: Colors.orange[400],
+            child: Icon(Icons.loop, color: Colors.white),
           ),
           Padding(padding: EdgeInsets.only(right: 8.0)),
           FloatingActionButton(
             onPressed: () {},
-            backgroundColor: Colors.blue,
+            backgroundColor: Colors.orange[400],
             child: Icon(Icons.close, color: Colors.white),
           ),
           Padding(padding: EdgeInsets.only(right: 8.0)),
           FloatingActionButton(
             onPressed: () {},
-            backgroundColor: Colors.blue,
-            child: Icon(Icons.favorite, color: Colors.red),
+            backgroundColor: Colors.orange[400],
+            child: Icon(Icons.favorite, color: Colors.pink),
           ),
           Padding(padding: EdgeInsets.only(right: 8.0)),
           FloatingActionButton(
             mini: true,
             onPressed: () {},
-            backgroundColor: Colors.blue,
-            child: Icon(Icons.star, color: Colors.yellow),
+            backgroundColor: Colors.orange[400],
+            child: Icon(Icons.star, color: Colors.white),
           ),
         ],
       ),
