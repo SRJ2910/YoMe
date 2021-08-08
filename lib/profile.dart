@@ -79,7 +79,7 @@ class MapScreenState extends State<ProfilePage>
                                     shape: BoxShape.circle,
                                     image: new DecorationImage(
                                       image: new NetworkImage(
-                                          'https://picsum.photos/id/237/200/300'),
+                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFp5SDGvQdK3UOl9fzYQhThPOycSgjJA2dw&usqp=CAU'),
                                       fit: BoxFit.cover,
                                     ),
                                   )),

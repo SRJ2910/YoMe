@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
+import 'imgage.dart';
+
 class Feedpage extends StatefulWidget {
   @override
   _FeedpageState createState() => _FeedpageState();
@@ -15,13 +17,13 @@ class _FeedpageState extends State<Feedpage> {
   void initState() {
     super.initState();
 
-    for (int i = 0; i < 100; i++) {
-      data.add(Random().nextInt(238) + 1);
+    for (int i = 0; i < 5; i++) {
+      data.add(Random().nextInt(2) + 1);
     }
   }
 
   void _onItemFocus(int index) {
-    // print(index);
+    print(index);
     setState(() {
       _focusedIndex = index;
     });
@@ -63,14 +65,13 @@ class _FeedpageState extends State<Feedpage> {
           children: <Widget>[
             Center(
               child: Container(
-                height: 600,
-                // width: 350,
-                // color: Colors.blue,
-                // child: Image.asset(
-                //   img(data[index]),
-                //   // fit: BoxFit.fitHeight,
-                // )
-              ),
+                  // height: 600,
+                  // width: 350,
+                  color: Colors.blue,
+                  child: Image.network(
+                    img(index),
+                    fit: BoxFit.fitHeight,
+                  )),
             )
           ],
         ),
@@ -116,9 +117,9 @@ class _FeedpageState extends State<Feedpage> {
                           // borderRadius: BorderRadius.circular(12),
                           // border: Border.all(color: const Color(0xFF28324E)),
                           image: DecorationImage(
-                            fit: BoxFit.contain,
+                            fit: BoxFit.cover,
                             image: NetworkImage(
-                                "https://picsum.photos/id/237/200/300"),
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFp5SDGvQdK3UOl9fzYQhThPOycSgjJA2dw&usqp=CAU"),
                           )),
                     )),
               ),
