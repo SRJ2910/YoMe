@@ -33,6 +33,7 @@ dependencies:
   syncfusion_flutter_sliders: ^19.2.51
   scroll_snap_list: ^0.8.2
   flutter_launcher_icons: "^0.9.1"
+  image_picker: ^0.6.6+5
   
 flutter_icons:
   android: "launcher_icon"

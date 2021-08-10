@@ -1,6 +1,10 @@
+import 'dart:io';
 import 'package:date_sate_app/feed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
+
+File? _image;
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -41,66 +45,41 @@ class MapScreenState extends State<ProfilePage>
                   color: Colors.orange[400],
                   child: new Column(
                     children: <Widget>[
-                      // Padding(
-                      //     padding: EdgeInsets.only(left: 20.0, top: 0.0),
-                      //     child: new Row(
-                      //       crossAxisAlignment: CrossAxisAlignment.start,
-                      //       children: <Widget>[
-                      //         new IconButton(
-                      //             onPressed: () {
-                      //               Navigator.pop(context);
-                      //             },
-                      //             iconSize: 23,
-                      //             icon: Icon(Icons.arrow_back_ios)),
-                      //         // Padding(
-                      //         //   padding:
-                      //         //       EdgeInsets.only(left: 0.0, top: 11),
-                      //         //   child: new Text('PROFILE',
-                      //         //       style: TextStyle(
-                      //         //           fontWeight: FontWeight.bold,
-                      //         //           fontSize: 20.0,
-                      //         //           // fontFamily: 'sans-serif-light',
-                      //         //           color: Colors.black)),
-                      //         // )
-                      //       ],
-                      //     )),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.0),
-                        child:
-                            new Stack(fit: StackFit.loose, children: <Widget>[
-                          new Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              new Container(
-                                  width: 140.0,
-                                  height: 140.0,
-                                  decoration: new BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: new DecorationImage(
-                                      image: new NetworkImage(
-                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFp5SDGvQdK3UOl9fzYQhThPOycSgjJA2dw&usqp=CAU'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  )),
-                            ],
-                          ),
-                          Padding(
-                              padding: EdgeInsets.only(top: 90.0, right: 100.0),
-                              child: new Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  new CircleAvatar(
-                                    backgroundColor: Colors.red,
-                                    radius: 25.0,
-                                    child: new Icon(
-                                      Icons.camera_alt,
-                                      color: Colors.white,
+                      SizedBox(
+                        height: 32,
+                      ),
+                      Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            _showPicker(context);
+                          },
+                          child: CircleAvatar(
+                            radius: 55,
+                            backgroundColor: Color(0xffFDCF09),
+                            child: _image != null
+                                ? ClipRRect(
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Image.file(
+                                      _image!,
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.fitHeight,
                                     ),
                                   )
-                                ],
-                              )),
-                        ]),
+                                : Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[200],
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
+                                    width: 100,
+                                    height: 100,
+                                    child: Icon(
+                                      Icons.camera_alt,
+                                      color: Colors.grey[800],
+                                    ),
+                                  ),
+                          ),
+                        ),
                       )
                     ],
                   ),
@@ -395,5 +374,53 @@ class MapScreenState extends State<ProfilePage>
         });
       },
     );
+  }
+
+  _imgFromCamera() async {
+    File image = await ImagePicker.pickImage(
+        source: ImageSource.camera, imageQuality: 50);
+
+    setState(() {
+      _image = image;
+    });
+  }
+
+  _imgFromGallery() async {
+    File image = await ImagePicker.pickImage(
+        source: ImageSource.gallery, imageQuality: 50);
+
+    setState(() {
+      _image = image;
+    });
+  }
+
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Photo Library'),
+                      onTap: () {
+                        _imgFromGallery();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      _imgFromCamera();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
